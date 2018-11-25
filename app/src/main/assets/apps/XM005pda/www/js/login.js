@@ -3,8 +3,6 @@ var arr = mui('.mui-card-content input');
 		LL.port = '8080';
 //		LL.ip = '192.168.12.81';
 //		LL.port = '8085';
-//		LL.ip = '59.46.58.242' ;
-//		LL.port = '8080';
 		LL.ABC=true ;
 		mui('.footer-btn').on('tap','button',function(){
 			M.p();
