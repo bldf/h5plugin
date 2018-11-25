@@ -172,8 +172,15 @@ public class PGPlugintest extends StandardFeature {
         }
     };
 
-//    private LPAPI api;
+    private LPAPI api;
 //
+
+    protected void onDestroy() {
+        // 应用退出时，调用LPAPI对象的quit方法断开打印机连接
+        api.quit();
+        // 应用退出时需要的操作
+//        fini();
+    }
 //    protected void onCreate() {
 //
 //        // 调用LPAPI对象的init方法初始化对象
