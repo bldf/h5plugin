@@ -1,0 +1,71 @@
+blockquote,body,button,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,table,td,textarea,th,ul {
+	margin: 0;
+	padding: 0
+}
+
+body,button,input,select,textarea {
+	font: 12px/24px Arial,'Microsoft Yahei',"锟斤拷锟斤拷",sans-serif  ;
+	user-select:none;
+}
+html,body{width:100%;height:100%;color: #000;}
+*{box-sizing: border-box;}
+address,cite,em,i {
+	font-style: normal
+}
+
+small {
+	font-size: 12px
+}
+
+li {
+	list-style: none
+}
+
+a {
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: none
+}
+
+legend {
+	color: #000
+}
+
+fieldset,img {
+	border: 0
+}
+button {outline:none}
+
+button,input,select,textarea {
+	font-size: 100%;
+	line-height: normal
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+input[type=button],input[type=reset],input[type=submit] {
+	cursor: pointer
+}
+
+iframe {
+	display: block
+}
+
+.clear-fix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+
+.clear-fix {
+	zoom: 1
+}
+ 

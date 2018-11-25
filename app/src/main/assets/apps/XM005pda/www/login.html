@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>登录页面</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	</header>
+	<div class="mui-content">
+		<div class="mui-row top">
+		    <img id="topImg" class="on" data-src="img/bg.webp">
+		    <div class="log-wrap">
+		    	<img id="logImg" class="on" data-src="img/Logob.png"/>	
+		    </div>
+		</div>
+		<div class="mui-row center">
+			 <div class="form-row mui-card-content">
+			 		<div class="mui-row">
+			 		    <div class="mui-input-row ico-input">
+			 		    	 <img class="img-user" src="img/main_07.png" width="20px" height="20px" />
+							<input type="text" name="username" class="mui-input-clear" placeholder="请输入用户名2...">
+						</div>
+			 		</div>
+			 		<div class="mui-row">
+			 		    <div class="mui-input-row ico-input">
+			 		    	<img class="img-pwd" src="img/main_10.png" width="20px" height="20px" />
+							<input type="password" name="password" class="mui-input-clear" placeholder="请输入密码...">
+						</div>
+			 		</div>
+			 </div>
+		</div>
+		<div class="mui-row footer footer-btn">
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block">登录</button>
+		</div>
+	</div>
+    <script src="js/mtool.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/plugin.js"></script>
+    <script>
+    	function resize(){
+    		M.sizeImg('.mui-content>div.top','#topImg',function(){//根据屏幕适配图片
+    		var el = mui('.mui-content>div.top')[0],el2=mui('.log-wrap')[0];
+    		this.classList.remove('on');
+    		this.attr('style','min-height:'+el.offsetHeight+'px;'+'min-width:'+el.offsetWidth+'px');
+//  		el.attr('style','min-height:'+el.offsetHeight+'px');
+//  		el2.attr('style','min-height:'+el2.offsetHeight+'px');
+	    	});
+	    	M.sizeImg('.mui-content>div.top>div.log-wrap','#logImg',function(){
+	    		this.classList.remove('on');
+	    	});
+    	};
+    	resize();
+    	onresize=resize;
+    </script>
+</body>
+</html>

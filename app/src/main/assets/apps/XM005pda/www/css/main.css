@@ -1,0 +1,48 @@
+li.down {
+    background: #0000001c !important;
+    z-index:  9;
+}
+li.scale{
+	transform: scale(1.2);
+}
+
+ul.mui-table-view li.down>span {
+    display:  inline-block !important;
+    position: absolute !important;
+    top: 5px;
+    right: 5px;
+    background: #F67F7D;
+    color: #fff;
+    border-radius:  50%;
+    width: 25px;
+    height: 25px;
+    line-height:  25px;
+    font-size: 26px !important;
+}
+li.trans {
+    transition: transform .2s;
+}
+
+ul.gridcon {
+    background-color: #f7f7f7 !important;
+}
+h1.mui-title {
+    color: #fff;
+}
+
+.mui-content {
+    background:  #fff;
+}
+.mui-row.tz-info {
+    font-size:  14px;
+}
+
+.mui-row.tz-info>div:first-child:after {
+    content: ' ';
+    position:  absolute;
+    width: 1px;
+    height: 50%;
+    background: #ccc;
+    top: 25%;
+    right:  0;
+}

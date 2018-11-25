@@ -1,0 +1,29 @@
+div#segmentedControlContents>div.mui-card:first-child{padding-top:1em}
+.mui-row.mui-fullscreen>[class*=mui-col-]{height:100%}
+.mui-col-xs-3,.mui-col-xs-9{overflow-y:auto;height:100%}
+.mui-segmented-control .mui-control-item{line-height:50px;width:100%;border-top:1px solid #dedcdc!important;border-left:1px solid #dedcdc!important;height:70px}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{background-color:#fff;border-left:1px solid #87cefa!important}
+.mui-card-header hr{width:100%;border:none!important;border-top:1px solid rgba(204,204,204,.18)!important}
+.mui-card-header:before{content:attr(data-before);position:absolute;background:#fff;left:50%;transform:translateX(-50%);padding:0 18px;font-size:12px;color:#CCC}
+.mui-card{background:#fff;box-shadow:none}
+.mui-card-header:after{content:none}
+ul.mui-table-view.mui-grid-view.mui-grid-9{background:#fff;border:none!important;box-shadow:none!important;border-radius:0}
+.mui-media-body{color:#000!important;font-size:12px!important}
+a.mui-control-item{border:none!important}
+a.mui-control-item.mui-active:after{content:' ';width:5px;height:100%;background:#87cefa;position:absolute;left:0}
+a.mui-control-item{position:relative}
+div#segmentedControlContents{background:#fff;overflow:auto}
+li.mui-table-view-cell.mui-media{border:none!important}
+a.mui-control-item{padding:6px 8px;display:flex!important;justify-content:center;align-items:center;flex-wrap:wrap;white-space:normal!important}
+a.mui-control-item span{line-height:20px}
+li.mui-table-view-cell.mui-media.mui-col-xs-4.mui-col-sm-4{padding:0 15px}
+.mui-card{margin:0 10px}
+.mui-card-header{padding:2px 15px!important;min-height:26px!important}
+.mui-card-content li>a{padding:6px 0!important}
+span.mui-icon.iconfont{font-size: 50px!important;color:#87cefa;}
+div#segmentedControlContents>div.mui-card:first-child{padding-top:1em}
+.mui-col-xs-2{background:#87cefa}
+div#segmentedControls{width:101%!important}
+a.mui-control-item:first-child{margin-top:0!important;border-top:none!important}
+div#segmentedControls a.mui-control-item:last-child{border-bottom:1px solid #dedcdc!important}
+span.mui-badge.mui-badge-red {top: 10px;}

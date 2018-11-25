@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>成品出库扫描</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/scanning.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+	</head>
+	<body>
+		<div class="mui-content">
+		    <form class="mui-input-group">
+		    	<div class="mui-input-row">
+					<label>订单号：</label>
+					<input  v-model="info.orderNo">
+				</div>
+				<div class="mui-input-row" style="margin: 0;">
+					<label>内部标签：</label>
+					<input  readonly="readonly" v-model="info.tagNo">
+				</div>
+				<div class="mui-input-row">
+					<label>内部标签数：</label>
+					<!--<div :class="o.noup?'no-input':''" class="mui-numbox" data-numbox-min="0" data-numbox-max="9999"  style="width:60%" data-numbox-step="10">
+						  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+						  <input class="mui-numbox-input"  placeholder="默认不可修改" v-model="info.num" type="number"/>
+						  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+					</div>-->
+					<input  readonly="readonly" v-model="info.num">
+				</div>
+				<div class="mui-input-row">
+					<label>内部零件号：</label>
+					<input  readonly="readonly" v-model="info.partNo">
+				</div>
+				<div class="mui-input-row">
+					<label>客户标签：</label>
+					<input   readonly="readonly"  v-model="info.cusTagNo">
+				</div>
+				<div class="mui-input-row">
+					<label>客户零件号：</label>
+					<input  readonly="readonly" v-model="info.orderNo">
+				</div>
+				<div class="mui-input-row">
+					<label>客户标签数：</label>
+					<!--<div :class="o.noup?'no-input':''" class="mui-numbox" data-numbox-min="0" data-numbox-max="9999"  style="width:60%" data-numbox-step="10">
+						  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+						  <input class="mui-numbox-input"  placeholder="默认不可修改" v-model="info.num" type="number"/>
+						  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+					</div>-->
+					<input  readonly="readonly" v-model="info.num2">
+				</div>
+			</form>
+			<div v-cloak class="mui-card">
+				<div class="mui-card-content">
+					<ul class="mui-table-view">
+						 <li  class="mui-table-view-cell">
+					    	<span>{{o.bt3}}记住扫描的订单</span>
+					    	<div :class="o.bt3=='已打开'?'mui-active':''" class="mui-switch" @toggle="setSwitch3">
+								  <div class="mui-switch-handle"></div>
+							</div>
+					    </li>
+					    <li  class="mui-table-view-cell">
+					    	<span>{{o.bt}}扫描成功后立即匹配</span>
+					    	<div :class="o.bt=='已打开'?'mui-active':''" class="mui-switch" @toggle="setSwitch">
+								  <div class="mui-switch-handle"></div>
+							</div>
+					    </li>
+					</ul>
+				</div>
+			</div>
+			<div v-cloak class="mui-card">
+				<div class="mui-card-content">
+					<dl>
+					    <dt>操作流程步骤</dt>
+					    <dd>
+					    	<ol>
+					    		<li>扫描客户订单号条形码</li>
+						    	<li>扫描内部标签号</li>
+						    	<li>扫描客户标签号</li>
+								<li>点击确定</li>
+					    	</ol>
+					    </dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer">
+				<button type="button" @tap="warehous"  class="mui-btn mui-btn-primary">确定匹配出库</button>
+		    </div>
+		</div>
+		</script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mtool.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/pdaScan.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/loadsh.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			var initObj={
+				type:'成品标签匹配出库',
+				outTxUrl:'/productStock/outFIFO.do',
+				ruKuUrl:'/productStock/exactMatch.do',
+				scanType:'[G',
+				scanF:function(d,f,n){
+					if(d.orderNo){
+						if(d.orderNo[1]!='L'){
+							M.play();
+							mui.alert('请扫描客户订单二维码，如果没有请手动输入，当前扫描为内部订单【'+d.orderNo+'】','出库失败','确定',function (e) {
+						 			
+							},'div');
+							console.log(故意报错) ;
+						}
+					}else{
+							if(d.tagNo[0]=='U'&&d.tagNo[1]=='N'){//如果扫描的是客户标签
+								d.cusTagNo = d.tagNo ;	
+								d.num2= d.num ;
+								d.orderNo = d.partNo ;
+								if(app.info.num && app.info.num != d.num ){//如果扫描的不匹配
+									M.play();
+									mui.alert('扫描不匹配，客户标签数:【'+d.num+'】内部标签数：【'+app.info.num+'】','精确匹配失败','重新扫描',function (e) {
+									},'div');
+									d={};
+								}else if(app.info.partNo && app.info.partNo != d.partNo){
+									M.play();
+									mui.alert('扫描不匹配，客户标签号:【'+d.partNo+'】内部标签号：【'+app.info.partNo+'】','精确匹配失败','重新扫描',function (e) {
+									},'div');
+									d={};
+								}
+								delete d.partNo ;
+								delete d.num ;
+								delete d.tagNo ;
+							}else{//如果扫描的是内部标签
+								if(app.info.num2 && app.info.num2 != d.num ){//如果扫描的不匹配
+									M.play();
+									mui.alert('扫描不匹配，客户标签数:【'+d.num+'】内部标签数：【'+app.info.num2+'】','精确匹配失败','重新扫描',function (e) {
+									},'div');
+									d={};
+								}else if(app.info.orderNo && app.info.orderNo != d.partNo){
+									M.play();
+									mui.alert('扫描不匹配，客户标签号:【'+d.partNo+'】内部标签号：【'+app.info.orderNo+'】','精确匹配失败','重新扫描',function (e) {
+									},'div');
+									d={};
+								}
+							}
+					}
+				}
+			}
+		</script>
+		<script src="../js/enterScan.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

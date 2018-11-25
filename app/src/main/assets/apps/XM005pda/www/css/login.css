@@ -1,0 +1,18 @@
+html, body {min-height: 600px !important;}
+header.mui-bar.mui-bar-nav{background:0 0;box-shadow:none!important}
+.mui-bar-nav~.mui-content{padding-top:0;height:100%;background:#fff;position:  relative;}
+.mui-row.top{height:40%;position:relative}
+a.mui-action-back.mui-icon.mui-icon-left-nav.mui-pull-left{color:#fff}
+.mui-row.center{height: 35%;display:flex;justify-content:center;align-items:center;}
+.mui-row.footer{height: 25%;text-align:center;display:flex;justify-content:center;align-items:center;}
+button.mui-btn.mui-btn-blue.mui-btn-block{width:80%;box-shadow: 1px 6px 21px #ecdd95;background: -webkit-linear-gradient(top,#c1791e,#a76d1b);border-radius:34px;border:none;font-size:14px;letter-spacing:.5em;margin-top: -5em;}
+input.mui-input-clear{background:#F8F8F8;border:1px solid #EFF4F9;padding-left:35px;margin-bottom:0;height:50px}
+input.mui-input-clear::-webkit-input-placeholder{color:#92949D;font-size:13px}
+.mui-input-row{width:80%;display:inline-block;border-radius:  6px;}
+.mui-card-footer{font-size:13px}
+.mui-card-footer:before,.mui-card-header:after{content:none!important}
+.form-row{text-align:center;width:100%}
+img.img-user{position:absolute;left:5px;top:50%;margin-top:-8px}
+img.img-pwd{position:absolute;left:5px;top:50%;margin-top:-8px}
+img.on{opacity:0}
+.log-wrap{width: 50%;height:47%;position:absolute;top: 84px;left:0;right:0;bottom:0;margin:auto;display:flex;justify-content:center;align-items:center;}

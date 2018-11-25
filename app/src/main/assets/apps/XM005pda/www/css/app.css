@@ -1,0 +1,13 @@
+:root{
+	--green:#4cd964;
+	}
+li[v-cloak],div[v-cloak],span[v-cloak],ul[v-cloak],ol[v-cloak]{display:none !important;}	
+/************  Begin 扫描失败的样式 *********************/
+.mui-popup.mui-popup-in{border-radius:0!important}
+.mui-popup-title{text-align:left;font-weight:600;color:red}
+span.mui-popup-button.mui-popup-button-bold{border-radius:0!important;text-align:right;padding-right:2mm;color:#acb9ac;font-weight:100;font-size:14px}
+.mui-popup-inner{border-radius:0}
+.mui-popup.mui-popup-in{width:300px}
+.mui-popup-inner:after{background:rgba(255,255,255,0)}
+.mui-popup-button:first-child {border-radius: 0 !important;}
+/************  扫描失败的样式  End*********************/

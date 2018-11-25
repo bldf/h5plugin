@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>库存详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../css/stockSearch.css" />
+		<style>
+			body>.mui-content{padding-top:127px !important;}
+			body>header{height:130px !important;}
+		</style>
+	</head>
+	<body>
+		<div id="listAPP" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<div id="listPage" class="mui-page">
+			 <a  href="#searchModdle"></a>
+		</div>
+		<!--------------------     Begin   默认列表页 --------------------------->
+		<header data-options="url:'/productStock/tagStock.do?partId='+LL.AWAREHOUSE" class="mui-bar mui-bar-nav">
+					<table>
+			    				<tr style="background:#ebfdff">
+							   	  <td id="total">总记录</td>
+							   	  <td>
+							   	  	 <a class="mui-navigate-left mui-icon mui-icon-search" href="#searchModdle"></a>
+							   	  </td>
+							   </tr>	
+							   <tr>
+							   	<td>物料追溯号</td>
+							   	<td>零件号</td>
+							   </tr>	
+							   <tr>
+							   	  <td>零件名称</td>
+							   	  <td>零件类型</td>
+							   </tr>
+							    <tr>
+							   	  <td>库位</td>
+							   	  <td>数量</td>
+							   </tr>
+							   <tr>
+							   		<td>类型</td>
+							   		<td>入库时间</td>
+							   </tr>
+							   
+					</table>
+		</header>
+		<div id="pullrefresh" class="mui-content">
+			<!--数据列表-->
+			<div id="dataCon" class="mui-table-view mui-table-view-chevron">
+			</div>
+		</div>
+		 <!--------------------             默认列表页    End--------------------------->
+		 <!--------------------          Begin   查询页面    --------------------------->
+		 <div id="searchModdle"  class="mui-page">
+			<div class="mui-page-content search-content">
+				<form id="search" class="mui-input-group">
+					<div class="mui-input-row">
+						<label>零&nbsp;件&nbsp;号&nbsp;<i style="opacity:0;">空</i>：</label>
+						<input type="text" readonly="readonly" data-options="url:'/part/partNoList.do?enable=11',text:'partNo'" class="picker-data" name="partNo">
+					</div>
+					<div class="mui-input-row">
+						<label>库&nbsp;&nbsp;位&nbsp;<i style="opacity:0;">空</i>：</label>
+						<input type="text" name="positionNo">
+					</div>
+				</form>
+				<div class="footer">
+					<ul class="sub">
+						<li>
+							<button type="button" data-options="pre:'#search input'" class="mui-btn sd-reset-click mui-btn-success">清空</button>
+						</li>
+						<li>
+							<button type="button" data-options="pre:'#search input',url:'list.html'" class="mui-btn sd-search-click mui-btn-primary">查询</button>
+						</li>		
+				  	</ul>
+				  </div>
+   		</div>
+		</div>
+		 <!--------------------             查询页面    End--------------------------->
+		<script id="showListId" type="text/html">
+			<div class="mui-card">
+				<div class="mui-card-content">
+					<p>
+						<i class="mui-badge mui-badge-success">{i}</i>
+						<span name="tagNo" class="mui-ellipsis">{tagNo}</span>
+						<span name="partNo" class="mui-ellipsis">{partNo}</span>
+					</p>
+					
+					<p>
+						<span name="partName" class="mui-ellipsis">{partName}</span>
+						<span name="partType" class="mui-ellipsis">{partType}</span>
+					</p>
+					<p>
+						<span name="positionNo" class="mui-ellipsis">{positionNo}</span>
+						<span name="num" class="mui-ellipsis">{num}</span>
+					</p>
+					<p>
+						<span name="flag" class="mui-ellipsis">{flag}</span>
+						<span name="inTime" class="mui-ellipsis">{inTime}</span>
+					</p>
+				</div>
+			</div>			
+		</script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.view.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mtool.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/stockSearch.js"></script>		
+	</body>
+</html>

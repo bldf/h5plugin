@@ -1,0 +1,60 @@
+*{margin:0 auto;padding:0;box-sizing: border-box;}
+body>header{height:90px !important;overflow:  hidden;}
+#listPage>header,body>header{height:90px;overflow:  hidden;}
+.mui-content>.mui-table-view:first-child{margin-top:-1px}
+.mui-bar-nav table{width:100%;height:100%;background:#eee;color:#000;text-align:center;font-size:14px}
+.mui-bar-nav table tr td:nth-child(2n+1){border-right:1px solid #f3d7d7;}
+.mui-bar-nav table tr td{width:50%}
+body>.mui-content{padding-top:90px!important}
+.mui-card{width:99%;margin:5px auto}
+.mui-card-content{width:100%}
+.mui-card-content p:first-child span:first-child{padding-left:2em}
+.mui-card-content p{margin-bottom:0}
+.mui-card-content p>i{position:absolute;left:4px;top:1px}
+.mui-card-content p span:first-child{border-right:1px solid #f3d7d7}
+.mui-card-content p span>i{position:absolute;left:5px}
+.mui-card-content p span{display:inline-block;width:50%;float:left;text-align:center;font-size:14px!important;position:relative}
+span.mui-ellipsis.no-read:after{content:' ';position:absolute;width:5px;height:5px;border-radius:50%;background:red;right:2em;top:5px}
+header.mui-bar.mui-bar-nav td>button.mui-btn.mui-icon.mui-icon-search{padding:0 1em!important;font-size: 15px;margin:0!important;top: 0;border:0;width:100%;background:#ebfdff;border-radius:0;color: #007aff;height: 28px !important;}
+#popover{height:230px;width:200px}
+li.mui-table-view-cell.on:before{content:'\e472';font-size:26px;position:absolute;top:0;bottom:0;right:0;z-index:999;color:#4cd964;font-family:Muiicons;display:flex;justify-content:center;align-items:center;height:100%}
+li.mui-table-view-cell.on{color:#4cd964}
+.mui-popover{transition:none!important}
+input.mui-input-speech{margin-bottom:0;font-size:16px;padding:15px;height:26px;border-radius:0;border-color:#f7f7f7;text-align:center}
+td.top-search-td{border-right:0!important;position:relative;border-bottom:1px solid #eee}
+td.top-search-td:after{content:'\e581';font-family:Muiicons;position:absolute;top:0;right:.3em;line-height:26px;color:#ccc;font-size:16px}
+.mui-icon-search:before{font-weight: bolder;font-size: 20px;}
+a.mui-icon.mui-icon-search{padding-top: 3px;padding-bottom: 3px;}
+/**************   Begin 查询样式   ****************************/
+.mui-input-group{padding-top:20px;background:#f7f7f7}
+.mui-input-group .mui-input-row{margin-top:20px;padding-right:30px;padding-bottom: 11mm;}
+.mui-input-group .mui-input-row input{border-radius:5px;background:#fff;float:left;width:60%;padding-left:5px;text-align:center;border: 1px solid #ccc;font-size:  14px;}
+.mui-input-group label{width:40%;font-size:  14px;text-align:  right;}
+.mui-input-group .mui-input-row:after{background:0 0}
+.mui-input-group:after{background:0 0}
+.sub{padding-top:100px;background:#f7f7f7;display:flex;list-style:none}
+ul.sub button{padding:1em 2em}
+div.mui-page-content.search-content{background: #f7f7f7;}
+/**************    查询样式   End****************************/
+/**************    Begin 单页面查询样式  ********************/
+.mui-page,.mui-page-content,.mui-pages,.mui-view,.mui-views{position:absolute;left:0;right:0;top:0;bottom:0;width:100%;height:100%;background-color:#efeff4;}
+.mui-pages{top:0;height:auto}
+.mui-scroll,.mui-scroll-wrapper{background-color:#efeff4}
+.mui-page.mui-transitioning{-webkit-transition:-webkit-transform .3s ease;transition:transform .3s ease}
+.mui-page-left{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+.mui-ios .mui-page-left{-webkit-transform:translate3d(-20%,0,0);transform:translate3d(-20%,0,0)}
+.mui-navbar{position:fixed;right:0;left:0;z-index:10;height:44px;background-color:#f7f7f8}
+.mui-navbar .mui-bar{position:absolute;background:0 0;text-align:center}
+.mui-android .mui-navbar-inner.mui-navbar-left{opacity:0}
+.mui-ios .mui-navbar-left .mui-center,.mui-ios .mui-navbar-left .mui-left,.mui-ios .mui-navbar-left .mui-right{opacity:0}
+.mui-navbar .mui-btn-nav{-webkit-transition:none;transition:none;-webkit-transition-duration:0s;transition-duration:0s}
+.mui-navbar .mui-bar .mui-title{display:inline-block;width:auto}
+.mui-page-shadow{position:absolute;right:100%;top:0;width:16px;height:100%;z-index:-1;content:''}
+.mui-page-shadow{background:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 10%,rgba(0,0,0,.01) 50%,rgba(0,0,0,.2) 100%);background:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 10%,rgba(0,0,0,.01) 50%,rgba(0,0,0,.2) 100%)}
+.mui-navbar-inner .mui-transitioning,.mui-navbar-inner.mui-transitioning{-webkit-transition:opacity .3s ease,-webkit-transform .3s ease;transition:opacity .3s ease,transform .3s ease}
+.mui-page{display:none}
+.mui-pages .mui-page{display:block}
+.mui-fullscreen{position:fixed;z-index:20;background-color:#000}
+.mui-ios .mui-navbar .mui-bar .mui-title{position:static}
+#listAPP #searchModdle{z-index: 99;}
+/**************    单页面查询样式   End********************/

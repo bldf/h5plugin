@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>主页</title>
+</head>
+<body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+			mui.init({swipeBack: false});
+		mui.plusReady(function(){
+			if(!localStorage.loginInfo){//如果还没有登录，提示去登录
+				goLogin();
+		    }else{
+		    	goIndex();
+		    }
+		});
+		function goLogin(){
+			mui.openWindow({
+						url: 'login.html',
+						id:'login.html',
+						show: {
+							aniShow: 'zoom-fade-out',
+							duration: 1500
+						},
+						styles:{
+							popGesture: "none"
+						},
+						waiting:{
+							autoShow:false
+						}
+					});
+		};
+		function goIndex(){
+			var w = plus.webview.getWebviewById('index.html') ;
+				w&&mui.fire(w,'tapindex');
+			mui.openWindow({
+						url: 'index.html',
+						id:'index.html',
+						show: {
+							aniShow: 'zoom-fade-out',
+							duration: 1500
+						},
+						styles:{
+							popGesture: "none"
+						},
+						waiting:{
+							autoShow:false
+						}
+					});
+		}
+	</script>
+</body>
+</html>

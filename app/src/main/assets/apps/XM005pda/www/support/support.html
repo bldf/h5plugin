@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../css/mui.min.css" />
+    <style type="text/css">
+    .mui-content {padding: 3% 3%;}
+	.show-title{text-decoration: underline;color:#8f8f94;}
+	a{-webkit-user-select: text !important;}
+    </style>
+</head>
+<body>
+	<div class="mui-content">
+		<p>仕点智能科技（上海）有限公司</p>
+		<p>电话：<a href="tel:021-69902691" class="show-title">021-69902691</a></p>
+		<p>传真：021-69902692</p>
+		<p>Email：<a href="mailto:contact@sd-int.cn" class="show-title">contact@sd-int.cn</a></p>
+		<p>Web：www.sd-int.cn</p>
+		<p>地址：<a class="show-title" id="map">上海市嘉定区沪宜公路3099号绿地嘉创国际商务广场1601室</a></p>
+		<p>邮编：201821</p>
+	</div>
+	<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/mtool.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	mui.init();
+    	mui('#map')[0].addEventListener('tap',function(){
+//  		if('Android'===plus.os.name&&navigator.userAgent.indexOf('StreamApp')>0){
+//				plus.nativeUI.toast('当前环境暂不支持地图插件');
+//				return;
+//			}
+//		// 设置目标位置坐标点和其实位置坐标点
+//		var dst = new plus.maps.Point(121.264142,31.373784); // 
+//		var src = new plus.maps.Point(121.264142,31.373784); // 
+//		// 调用系统地图显示 
+//		plus.maps.openSysMap( dst, "绿地嘉创办公区域", src );
+    	})
+    </script>
+</body>
+</html>

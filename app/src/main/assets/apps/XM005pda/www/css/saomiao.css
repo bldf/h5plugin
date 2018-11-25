@@ -1,0 +1,12 @@
+.mui-content,body,html{width:100%;height:100%}
+.fbt{width:50%;height:100%;background-color:#FC3;display:flex;justify-content:center;align-items:center;float:left}
+.fbt:active{-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.5);box-shadow:inset 0 3px 5px rgba(0,0,0,.5)}
+.mui-bar-tab{background-color:#FC3}
+.mui-content{padding-bottom:50px;display:flex;justify-content:center;align-items:center}
+.scan{height:100%;width:100%;background:#000}
+header i{padding:0 1em}
+header i:active{-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.5)}
+div.loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+div.loading a{color:#fff}
+div.loading span{color:#fff}
+.info{width:100%;height:20px;position:absolute;top:48px;text-align:center}
