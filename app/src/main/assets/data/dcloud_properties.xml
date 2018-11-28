@@ -59,7 +59,7 @@
 		</feature>
 		<feature name="Stream" value="io.dcloud.appstream.js.StreamAppFeatureImpl"/>
 		<feature name="Fingerprint" value="io.dcloud.feature.fingerprint.FingerPrintsImpl"/>
-		<feature name="plugintest" value="com.example.PGPlugintest"/>
+		<feature name="plugintest" value="com.example.H5PlusPlugin.PGPlugintest"/>
 	</features>
 
 	<services>

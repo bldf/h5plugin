@@ -1,1 +1,199 @@
-{"id":"XM005pda","name":"\u6c88\u9633\u822a\u53d1PDA","version":{"name":"1.5","code":8},"description":"","icons":{"72":"icon.png"},"launch_path":"home.html","developer":{"name":"java1314@foxmail.com","email":"java1314@foxmail.com","url":""},"permissions":{"Cache":{"description":"plus.cache.*"},"Console":{"description":"plus.console.*"},"Events":{"description":"Events"},"Stream":{"description":"plus.stream.*"},"Confusion":{"description":"Resource confusion"},"Audio":{"description":"plus.audio.*"},"Accelerometer":{"description":"plus.accelerometer.*"},"Barcode":{"description":"plus.barcode.*"},"Camera":{"description":"plus.camera.*"},"Device":{"description":"plus.device.*"},"Downloader":{"description":"plus.downloader.*"},"File":{"description":"plus.io.*"},"Gallery":{"description":"plus.gallery.*"},"Geolocation":{"description":"plus.geolocation.*"},"Invocation":{"description":"plus.android.*"},"NativeObj":{"description":"plus.nativeObj.*"},"NativeUI":{"description":"plus.nativeUI.*"},"Navigator":{"description":"plus.navigator.*"},"Orientation":{"description":"plus.orientation.*"},"Proximity":{"description":"plus.proximity.*"},"Runtime":{"description":"plus.runtime.*"},"Storage":{"description":"plus.storage.*"},"Uploader":{"description":"plus.uploader.*"},"Webview":{"description":"plus.webview.*"},"XMLHttpRequest":{"description":"plus.net.*"},"Zip":{"description":"plus.zip.*"},"Share":{"description":"plus.share.*"}},"plus":{"splashscreen":{"autoclose":true,"waiting":true},"statusbar":{"background":"#b7741d"},"popGesture":"close","runmode":"normal","signature":"Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==","adid":"124927020606"}}
+{"id":"XM005pda","name":"\u6c88\u9633\u822a\u53d1PDA","version":{"name":"1.5","code":8},"description":"","icons":{"72":"icon.png"},"launch_path":"home.html","developer":{"name":"java1314@foxmail.com","email":"java1314@foxmail.com","url":""},"permissions":{"Cache":{"description":"plus.cache.*"},"Console":{"description":"plus.console.*"},"Events":{"description":"Events"},"Stream":{"description":"plus.stream.*"},"Confusion":{"description":"Resource confusion"},"Audio":{"description":"plus.audio.*"},"Accelerometer":{"description":"plus.accelerometer.*"},"Barcode":{"description":"plus.barcode.*"},"Camera":{"description":"plus.camera.*"},"Device":{"description":"plus.device.*"},"Downloader":{"description":"plus.downloader.*"},"File":{"description":"plus.io.*"},"Gallery":{"description":"plus.gallery.*"},"Geolocation":{"description":"plus.geolocation.*"},"Invocation":{"description":"plus.android.*"},"NativeObj":{"description":"plus.nativeObj.*"},"NativeUI":{"description":"plus.nativeUI.*"},"Navigator":{"description":"plus.navigator.*"},"Orientation":{"description":"plus.orientation.*"},"Proximity":{"description":"plus.proximity.*"},"Runtime":{"description":"plus.runtime.*"},"Storage":{"description":"plus.storage.*"},"Uploader":{"description":"plus.uploader.*"},"Webview":{"description":"plus.webview.*"},"XMLHttpRequest":{"description":"plus.net.*"},"Zip":{"description":"plus.zip.*"}},"plus":{"distribute":{"google":{"permissions":["<uses-permission android:name=\"android.permission.BLUETOOTH\"/>"]},"icons":{"android":{"hdpi":"unpackage/res/icons/72x72.png","mdpi":"unpackage/res/icons/48x48.png","ldpi":"unpackage/res/icons/48x48.png","xhdpi":"unpackage/res/icons/96x96.png","xxhdpi":"unpackage/res/icons/144x144.png","xxxhdpi":"unpackage/res/icons/192x192.png"},"ios":{"iphone":{"app@2x":"unpackage/res/icons/120x120.png","app@3x":"unpackage/res/icons/180x180.png","settings@3x":"unpackage/res/icons/87x87.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","spotlight@3x":"unpackage/res/icons/120x120.png","notification@3x":"unpackage/res/icons/60x60.png","notification@2x":"unpackage/res/icons/40x40.png"},"ipad":{"app":"unpackage/res/icons/76x76.png","app@2x":"unpackage/res/icons/152x152.png","settings":"unpackage/res/icons/29x29.png","proapp@2x":"unpackage/res/icons/167x167.png","spotlight":"unpackage/res/icons/40x40.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","notification":"unpackage/res/icons/20x20.png","notification@2x":"unpackage/res/icons/40x40.png"},"appstore":"unpackage/res/icons/1024x1024.png"}},"splashscreen":{"android":{"hdpi":"D:/yxl/dblogo.png","xhdpi":"D:/yxl/dblogo.png","xxhdpi":"D:/yxl/dblogo.png"}}},"splashscreen":{"autoclose":true,"waiting":true},"statusbar":{"background":"#b7741d"},"popGesture":"close","runmode":"normal","signature":"Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw=="},
+  "dependencies": {
+    "pages": {
+      "index.html": {
+        "resources": [
+          "main.html"
+        ],
+        "refer": [
+          "my.html",
+          "operation.html",
+          "saomiao.html"
+        ],
+        "priority": 0
+      },
+      "home.html": {
+        "resources": [],
+        "refer": [
+          "index.html",
+          "login.html"
+        ],
+        "priority": 0
+      },
+      "main.html": {
+        "resources": [],
+        "refer": [
+          "materiel/index.html",
+          "materielc/index.html",
+          "materield/index.html",
+          "materielb/index.html",
+          "pk/pkList.html",
+          "materiela/index.html"
+        ],
+        "priority": 0
+      },
+      "materiel/index.html": {
+        "resources": [],
+        "refer": [
+          "materiel/enterScanningIsolationDo.html",
+          "materiel/putInStorage.html",
+          "materiel/enterScanning.html",
+          "materiel/outScanning.html",
+          "materiel/outScanningQuit.html",
+          "materiel/enterScanningQuit.html",
+          "materiel/enterScanningIsolation.html"
+        ],
+        "priority": 0
+      },
+      "materielc/index.html": {
+        "resources": [],
+        "refer": [
+          "materielc/enterScanning.html",
+          "materielc/addEache.html",
+          "materielc/outScanning2.html",
+          "materielc/outScanning.html",
+          "materielc/putInStorage.html",
+          "materielc/putOutStorage.html",
+          "materielc/warehouse2.html"
+        ],
+        "priority": 0
+      },
+      "operation.html": {
+        "resources": [],
+        "refer": [
+          "order/enterScanning.html",
+          "order/orderList.html"
+        ],
+        "priority": 0
+      },
+      "materield/index.html": {
+        "resources": [],
+        "refer": [
+          "materield/enterScanning.html",
+          "materield/outScanning.html",
+          "materield/enterScanningQuit.html",
+          "materield/outScanningQuit.html",
+          "materield/enterScanningIsolationDo.html",
+          "materield/enterScanningIsolation.html"
+        ],
+        "priority": 0
+      },
+      "pk/pkList.html": {
+        "resources": [],
+        "refer": [
+          "pk/pk.html"
+        ],
+        "priority": 0
+      },
+      "materiela/index.html": {
+        "resources": [],
+        "refer": [
+          "materiela/enterScanningIsolationDo.html",
+          "materiela/enterScanningIsolation.html",
+          "materiela/putInStorage.html",
+          "materiela/enterScanning.html",
+          "materiela/outScanning.html"
+        ],
+        "priority": 0
+      }
+    },
+    "idle": {
+      "resources": [
+        "materielb/enterScanningIsolationList.html",
+        "css/saomiao.css",
+        "materiel/warehouse.html",
+        "materielb/outScanning.html",
+        "js/loadsh.min.js",
+        "js/pdaScan.js",
+        "img/bg1.webp",
+        "js/select.js",
+        "materielb/warehouse.html",
+        "fonts/iconfont.ttf",
+        "img/main_10.png",
+        "materielf/enterScanningIsolation.html",
+        "img/Logob.png",
+        "js/mui.view.js",
+        "css/tabPullRefresh.css",
+        "fonts/mui.ttf",
+        "materiela/warehouse.html",
+        "materield/putOutStorage.html",
+        "materielb/outScanningQuit.html",
+        "materiel/enterScanningIsolationList.html",
+        "materielb/enterScanningIsolation.html",
+        "materield/enterScanningIsolationList.html",
+        "js/index.js",
+        "materielc/enterScanningOverflowReceiving.html",
+        "fonts/iconfont.js",
+        "order/index.html",
+        "img/sdlogo1.png",
+        "materiela/enterScanningQuit.html",
+        "materielg/warehouseList.html",
+        "js/vue.min.js",
+        "materielb/enterScanning.html",
+        "materielf/warehouse.html",
+        "materiele/index.html",
+        "materielb/putOutStorage.html",
+        "js/mui.min.js",
+        "js/interact.js",
+        "materiela/outScanningQuit.html",
+        "materielg/putOutStorage.html",
+        "materielc/enterScanningIsolationList.html",
+        "js/warehouse.js",
+        "css/login.css",
+        "materield/enterScanningOverflowReceiving.html",
+        "materielg/index.html",
+        "css/stockSearch.css",
+        "fonts/iconfont.css",
+        "materielb/putInStorage.html",
+        "css/mui.min.css",
+        "materielc/enterScanningQuit.html",
+        "materielf/enterScanning.html",
+        "js/stockSearch.js",
+        "materiele/outScanning.html",
+        "img/bg.webp",
+        "js/mui.picker.min.js",
+        "js/mtool.js",
+        "materiel/warehouseList.html",
+        "materielb/enterScanningQuit.html",
+        "fonts/iconfont.woff",
+        "materielc/warehouse.html",
+        "materiel/putOutStorage.html",
+        "materielf/warehouseList.html",
+        "img/main_07.png",
+        "js/my.js",
+        "materielc/enterScanningIsolationDo.html",
+        "css/mui.picker.min.css",
+        "materielc/enterScanningIsolation.html",
+        "js/main.js",
+        "css/main.css",
+        "js/enterScan.js",
+        "materielb/enterScanningIsolationDo.html",
+        "img/bg.jpg",
+        "materiele/enterScanning.html",
+        "css/operation.css",
+        "materield/warehouseList.html",
+        "materield/putInStorage.html",
+        "materielc/addEacheMatch.html",
+        "materiel/enterScanningOverflowReceiving.html",
+        "materiela/warehouseList.html",
+        "css/index.css",
+        "materielb/warehouseList.html",
+        "materiela/enterScanningIsolationList.html",
+        "fonts/iconfont.svg",
+        "materiela/enterScanningOverflowReceiving.html",
+        "js/outScan.js",
+        "js/login.js",
+        "css/scanning.css",
+        "materielf/index.html",
+        "materielb/enterScanningOverflowReceiving.html",
+        "materiela/putOutStorage.html",
+        "materield/warehouse.html",
+        "css/app.css",
+        "support/support.html",
+        "materielc/warehouseList.html",
+        "fonts/iconfont.eot",
+        "materielf/outScanning.html",
+        "css/reset.css"
+      ]
+    }
+  }}
