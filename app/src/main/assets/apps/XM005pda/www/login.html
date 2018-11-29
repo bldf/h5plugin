@@ -26,17 +26,17 @@
     <div style="float: left;padding-right: 8px;">
         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     </div>
-    <h1 id="title" class="mui-title">打印</h1>
+    <h1 id="title" class="mui-title">打印链接设置</h1>
     <div style="float: right;padding-right: 8px;">
         <a class="mui-icon mui-icon-refreshempty" id="btnRefresh"></a>
     </div>
 </header>
 <div class="mui-content mui-content-padded">
-    <h5 class="mui-content-padded">点击设备开始连接</h5>
+    <h5 class="mui-content-padded">点击设备开始配对</h5>
     <ul id="list1" class="mui-table-view mui-table-view-chevron">
     </ul>
     <br />
-    <h5 class="mui-content-padded">点击设备开始打印</h5>
+    <h5 class="mui-content-padded">点击设备开始链接</h5>
     <ul id="list2" class="mui-table-view mui-table-view-chevron">
     </ul>
 </div>
@@ -133,7 +133,7 @@
         // 蓝牙服务与适配
         var BManager, BAdapter, BluetoothSocket, mDevice, receiver;
         var mMain, mUUID;
-        var initParms =[{"x":"8.7","y":"1.1","width":"22.1","height":"22.1","type":"barCode"},{"x":"1.6","y":"24.1","width":"9.3","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.1","y":"24.1","width":"36.2","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"32.8","width":"9.3","height":"5.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.4","y":"32.8","width":"36.0","height":"5.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"40.0","width":"45.8","height":"7.4","type":"code","codeType":20,"textHeight":3}];
+        var initParms =[{"x":"11.7","y":"0.3","width":"23.0","height":"23.0","type":"barCode"},{"x":"1.6","y":"24.1","width":"9.3","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.1","y":"24.1","width":"36.2","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"32.8","width":"9.3","height":"5.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.4","y":"32.8","width":"36.0","height":"5.3","type":"text","codeType":20,"fontHeight":3.2}];
         var vlist1 = document.getElementById('list1'); //注册容器用来显示未配对设备
         var vlist2 = document.getElementById('list2'); //注册容器用来显示未配对设备
         var buttonRefresh = document.getElementById('btnRefresh');
@@ -310,21 +310,21 @@
                 return;
             }
            // mui.toast('打印机的地址'+mac_address+'打印的内容：') ;
-            plus.plugintest.JoinPrinterAddress(0,function(re){
+            plus.printbarcode.JoinPrinterAddress(0,function(re){
                 mui.toast('蓝牙链接成功，开始打印标签内容了'+re);
 
                 setTimeout(function(){
-                // plus.plugintest.printText('daadfadfadfasfasdfasdf的说法发到付',function(da){
+                // plus.printbarcode.printText('daadfadfadfasfasdfasdf的说法发到付',function(da){
                  //   alert(da);
                //  });
 
-                //  plus.plugintest.printBarcode('哈哈哈！傻B，你是不是扫我了！',function(da){
+                //  plus.printbarcode.printBarcode('哈哈哈！傻B，你是不是扫我了！',function(da){
                 //    alert(da);
                  //});
 
-                  plus.plugintest.initParam(initParms,function(da){
+                  plus.printbarcode.initParam(initParms,function(da){
                    mui.alert('点击开始打印标签','初始化成功'+da,'开始打印',function (e) {
-                         plus.plugintest.printLabel(['钢卷号:S:SDFWE32323','钢卷号','S:SDFWE32323','标签日期','2018-23-22','89232211'],function(dat){
+                         plus.printbarcode.printLabel(['钢卷号:S:SDFWE32323','钢卷号','S:SDFWE32323','标签日期','2018-23-22'],function(dat){
                                  alert('打印成功'+dat);
                          });
 
@@ -406,6 +406,9 @@
             li.appendChild(a);
             return li;
         }
+        setTimeout(function(){
+        //alert(JSON.stringify(plus.printbarcode.allddresses()));
+        },5000);
         </script>
 </body>
 </html>

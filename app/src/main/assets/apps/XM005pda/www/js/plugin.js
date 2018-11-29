@@ -79,6 +79,12 @@ document.addEventListener("plusready", function () {
                return B.exec(_BARCODE, "printBarcode", [callbackID, Argus1]);
            },
            /**
+            获取所有已配对的蓝牙列表
+           */
+           allddresses: function () {
+              return B.execSync(_BARCODE, "allddresses");
+          },
+           /**
            初始化标签框架基础参数
            */
           initParam:function (paramArr,successCallback, errorCallback) {

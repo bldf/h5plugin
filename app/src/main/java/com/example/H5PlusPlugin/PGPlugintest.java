@@ -23,6 +23,7 @@ import com.dothantech.lpapi.LPAPI;
 import com.dothantech.printer.IDzPrinter;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 public class PGPlugintest extends StandardFeature {
     private static  JSONArray INITPARAMS = null;
@@ -155,6 +156,53 @@ public class PGPlugintest extends StandardFeature {
         }
         JSUtil.execCallback(pWebview, CallBackID, newArray, JSUtil.OK, true);
     }
+
+    /**
+     * 获取所有已配对的蓝牙
+     * @return
+     */
+    public String PluginTestFunctionSyncArrayArgus(IWebview pWebview, JSONArray array)
+    {
+        JSONArray newArray = null;
+        JSONObject retJSONObj = null;
+        try {
+            newArray = array.optJSONArray(0);
+            String inValue1 = newArray.getString(0);
+            String inValue2 = newArray.getString(1);
+            String inValue3 = newArray.getString(2);
+            String inValue4 = newArray.getString(3);
+            retJSONObj = new JSONObject();
+            retJSONObj.putOpt("RetArgu1", inValue1);
+            retJSONObj.putOpt("RetArgu2", inValue2);
+            retJSONObj.putOpt("RetArgu3", inValue3);
+            retJSONObj.putOpt("RetArgu4", inValue4);
+
+        } catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        return JSUtil.wrapJsVar(retJSONObj);
+    }
+    public String allddresses(IWebview pWebview, JSONArray array)
+    {
+        JSONObject retJSONObj = null;
+        pairedPrinters = api.getAllPrinterAddresses(null);// 在链接打印机的时候获取所有的已链接的打印机
+        try {
+            retJSONObj = new JSONObject();
+            Iterator<IDzPrinter.PrinterAddress> it =  pairedPrinters.iterator() ;
+            while (it.hasNext()){
+                IDzPrinter.PrinterAddress re =   it.next() ;
+                retJSONObj.putOpt(re.shownName,re.macAddress) ;
+            }
+        } catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        return JSUtil.wrapJsVar(retJSONObj);
+    }
+
 
     /************* Begin 测试 接口 *******************/
 
