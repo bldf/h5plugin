@@ -133,7 +133,7 @@
         // 蓝牙服务与适配
         var BManager, BAdapter, BluetoothSocket, mDevice, receiver;
         var mMain, mUUID;
-        var initParms =[{"x":"11.7","y":"0.3","width":"23.0","height":"23.0","type":"barCode"},{"x":"1.6","y":"24.1","width":"9.3","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.1","y":"24.1","width":"36.2","height":"6.9","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"32.8","width":"9.3","height":"5.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"11.4","y":"32.8","width":"36.0","height":"5.3","type":"text","codeType":20,"fontHeight":3.2}];
+        var initParms =[{"x":"0.6","y":"0.3","width":"48.5","height":"5.1","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.6","y":"7.9","width":"23.3","height":"23.3","type":"barCode"},{"x":"5.1","y":"32.9","width":"8.3","height":"3.1","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"33.0","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"5.1","y":"35.8","width":"8.3","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"35.8","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"5.1","y":"37.9","width":"8.3","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"37.9","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"5.1","y":"40.6","width":"8.3","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"40.6","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"5.1","y":"43.2","width":"8.3","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"43.2","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"5.1","y":"46.4","width":"8.3","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.5","y":"46.4","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2}];
         var vlist1 = document.getElementById('list1'); //注册容器用来显示未配对设备
         var vlist2 = document.getElementById('list2'); //注册容器用来显示未配对设备
         var buttonRefresh = document.getElementById('btnRefresh');
@@ -324,7 +324,7 @@
 
                   plus.printbarcode.initParam(initParms,function(da){
                    mui.alert('点击开始打印标签','初始化成功'+da,'开始打印',function (e) {
-                         plus.printbarcode.printLabel(['钢卷号:S:SDFWE32323','钢卷号','S:SDFWE32323','标签日期','2018-23-22'],function(dat){
+                         plus.printbarcode.printLabel(['鼎森金属生产信息化系统','R:M8A15100010B00;W:WL1812010954309;G:1.4*1068*C;N:12981KG;P:26208189/8219','追溯号','WL1812010974390','钢卷号','M8A15100010B00','规格','1.4*1068*C','净重','12981KG','零件号','26208189/8219','打印时间','2018-12-01 09:54:30'],function(dat){
                                  alert('打印成功'+dat);
                          });
 
