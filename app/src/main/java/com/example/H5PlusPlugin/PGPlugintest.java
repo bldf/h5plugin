@@ -299,7 +299,7 @@ public class PGPlugintest extends StandardFeature {
      */
     private boolean printContent(Bundle param,JSONArray contentArray) {
         // 开始绘图任务，传入参数(页面宽度, 页面高度)
-        api.startJob(50, 50, 0);
+        api.startJob(50, 80, 0);
         for( int a = 1;a<INITPARAMS.length();a++){
             JSONObject obj =null;
             try{
