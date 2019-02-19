@@ -26,389 +26,77 @@
     <div style="float: left;padding-right: 8px;">
         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
     </div>
-    <h1 id="title" class="mui-title">打印链接设置</h1>
+    <h1 id="title" class="mui-title">IFID - demo</h1>
     <div style="float: right;padding-right: 8px;">
         <a class="mui-icon mui-icon-refreshempty" id="btnRefresh"></a>
     </div>
 </header>
 <div class="mui-content mui-content-padded">
-    <h5 class="mui-content-padded">点击设备开始配对</h5>
+    <h5 onclick="openIFID()" class="mui-content-padded">打开IFID</h5>
     <ul id="list1" class="mui-table-view mui-table-view-chevron">
     </ul>
     <br />
-    <h5 class="mui-content-padded">点击设备开始链接</h5>
+    <h5 onclick="closeIFID()" class="mui-content-padded">关闭IFID</h5>
+    <ul id="list2" class="mui-table-view mui-table-view-chevron">
+    </ul>
+    <br />
+    <h5 onclick="getIFID()" class="mui-content-padded">读取IFID</h5>
+    <ul id="list2" class="mui-table-view mui-table-view-chevron">
+
+    </ul>
+    <br />
+    <h5 onclick="writeIFID()" class="mui-content-padded">写数据</h5>
+    <ul id="list2" class="mui-table-view mui-table-view-chevron">
+    </ul>
+    <br />
+    <h5 onclick="readeIFID()" class="mui-content-padded">读取写入的数据</h5>
     <ul id="list2" class="mui-table-view mui-table-view-chevron">
     </ul>
 </div>
 <script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/plugin.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/plugin2.js" type="text/javascript" charset="utf-8"></script>
+
 <script type="text/javascript">
-        	(function($, owner) {
-    owner.OutputStream = null;
 
-    owner.init = function(BluetoothSocket) {
-        owner.OutputStream = BluetoothSocket.getOutputStream();
-        plus.android.importClass(owner.OutputStream);
-    }
-
-    // 设置字体大小
-    owner.SetFontSize = function(n) {
-        var font = [0x1D, 0X21, n]
-        owner.OutputStream.write(font);
-    };
-
-    // 打印字符串
-    owner.PrintString = function(string) {
-        var bytes = plus.android.invoke(string, 'getBytes', 'gbk');
-        owner.OutputStream.write(bytes);
-        mui.toast('打印的内容为：'+bytes)
-    };
-
-    // 重置打印机
-    owner.Reset = function() {
-        var reset = [0x1B, 0X40];
-        owner.OutputStream.write(reset);
-    };
-
-    // 打印下划线
-    owner.Underline = function() {
-        // 下划线指令
-        var underline = [0x1b, 0x2d, 0x01];
-        owner.OutputStream.write(underline);
-    };
-
-    // 结束打印
-    owner.End = function() {
-        owner.OutputStream.flush();
-        var end = [0x1d, 0x4c, 0x1f, 0x00];
-        owner.OutputStream.write(end);
-    };
-
-    // 打印图片（暂不可用）
-    owner.Picture = function() {
-        var picture = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1B, 0x40, 0x1B, 0x33, 0x00];
-        // var picture = [0x1B, 0x2A];
-        owner.OutputStream.write(picture);
-    };
-
-    // 切纸（暂不可用）
-    owner.CutPage = function() {
-        // 发送切纸指令
-        var end = [0x1B, 0x69];
-        owner.OutputStream.write(end);
-    };
-
-    // 条形码打印(暂不可用)
-    owner.PrintBarcode = function(n) {
-        var barcode = [0x1D, 0x6B, 65, 5, 11, 12, 3, 6, 23];
-        owner.OutputStream.write(barcode);
-    };
-}(mui, window.PrintUtil = {}))
-        </script>
-<script type="text/javascript">
-        	window.CommonUtil = {} ;
-        	 CommonUtil.WaitFor = function(condition, callback, timeout, unitTime) {
-        // 设置默认等待时间（循环间隔）
-        if(!unitTime || isNaN(unitTime)) {
-            unitTime = 100;
-        }
-        // 设置超时（到达超时则返回）
-        if(!timeout || isNaN(timeout)) {
-            timeout = 100;
-        }
-        if(condition && condition()) { // 等待条件成立，则执行回调
-            callback();
-        } else if(timeout - unitTime <= 0) { // 等待超时，则执行回调
-            callback();
-        } else { // 设置延时等待操作
-            setTimeout(function() {
-                owner.WaitFor(condition, callback, timeout - unitTime, unitTime);
-            }, unitTime);
-        }
-    };
-        </script>
-<script type="text/javascript">
-        // 导入的java包
-        var Context, BluetoothAdapter, BluetoothDevice;
-        // 蓝牙服务与适配
-        var BManager, BAdapter, BluetoothSocket, mDevice, receiver;
-        var mMain, mUUID;
-        var initParms =[{"x":"1.5","y":"0.2","width":"46.6","height":"8.6","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"12.0","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.8","y":"12.0","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"16.2","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.8","y":"16.1","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.7","y":"20.5","width":"12.1","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.9","y":"20.4","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"24.7","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.8","y":"24.6","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"28.7","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.9","y":"28.7","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"32.6","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"14.0","y":"32.6","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"1.6","y":"36.6","width":"12.0","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"14.0","y":"36.6","width":"35.4","height":"3.3","type":"text","codeType":20,"fontHeight":3.2},{"x":"13.3","y":"44.8","width":"23.4","height":"23.4","type":"barCode"},{"x":"0.7","y":"71.7","width":"25.8","height":"5.3","type":"text","codeType":20,"fontHeight":3.2}];
-        var vlist1 = document.getElementById('list1'); //注册容器用来显示未配对设备
-        var vlist2 = document.getElementById('list2'); //注册容器用来显示未配对设备
-        var buttonRefresh = document.getElementById('btnRefresh');
-
-        document.addEventListener('plusready', function(event) {
-            var self = plus.webview.currentWebview();
-            // 打开蓝牙设备并扫描
-            if (mui.os.android) {
-                // 打开蓝牙
-                openAndroidBluetooth();
-
-                // 设置延时，防止蓝牙未完全开启时调用
-                CommonUtil.WaitFor(
-                    function() {
-                        return BAdapter.isEnabled();
-                    },
-                    function() {
-                        // 获取已连接设备列表
-                        getConnectedDevices();
-                    },
-                    3000);
-            }
-        });
-        // 刷新(重新扫描)
-        buttonRefresh.addEventListener('tap', function(event) {
-            buttonRefresh.disabled = true;
-            if (mui.os.android) {
-                // 扫描
-                searchDevices();
-            }
-            buttonRefresh.disabled = false;
-        });
-        // list1/list2的监听事件只能用on绑定，如果使用
-        //              li2.addEventListener('tap', function(event) {
-        //                  print(li2.getAttribute('id'));
-        //              });
-        // 会导致打印时socket超时，具体原因不明
-        mui('#list1').on('tap', 'li', function() {
-            connect(this.id);
-        })
-        mui('#list2').on('tap', 'li', function() {
-            print(this.id);
-        })
-
-        /**
-         *打开蓝牙（Android）
-         */
-        function openAndroidBluetooth() {
-            mMain = plus.android.runtimeMainActivity();
-            Context = plus.android.importClass("android.content.Context");
-            BManager = mMain.getSystemService(Context.BLUETOOTH_SERVICE);
-            plus.android.importClass(BManager); //引入相关的method函数
-            BAdapter = BManager.getAdapter();
-            plus.android.importClass(BAdapter); //引入相关的method函数，这样之后才会有isEnabled函数支持
-            if (!BAdapter.isEnabled()) {
-                BAdapter.enable();
-            }
-        }
-
-        /**
-         * 获取已配对的蓝牙设备列表
-         */
-        function getConnectedDevices() {
-            //          var main = plus.android.runtimeMainActivity();
-            //          var BluetoothAdapter = plus.android.importClass("android.bluetooth.BluetoothAdapter");
-            //          var BAdapter = BluetoothAdapter.getDefaultAdapter(); //获得本机蓝牙适配器
-            if (!BAdapter.isEnabled()) {
-                plus.nativeUI.toast('请先打开蓝牙');
-                return;
-            }
-            var lists = BAdapter.getBondedDevices(); //获取配对的设备列表
-            plus.android.importClass(lists);
-            var iterator = lists.iterator();
-            plus.android.importClass(iterator);
-            var vlist2 = document.getElementById('list2'); //注册容器用来显示未配对设备
-            while (iterator.hasNext()) {
-                var d = iterator.next();
-                plus.android.importClass(d);
-                var li2 = genLi(d);
-                vlist2.appendChild(li2);
-            }
-        }
-
-        /**
-         *扫描蓝牙设备
-         */
-        function searchDevices() {
-            //console.log("开始搜索设备");
-
-            if (!BAdapter.isEnabled()) {
-                plus.nativeUI.toast('请先打开蓝牙');
-                return;
-            }
-
-            plus.nativeUI.showWaiting('正在搜索设备，请稍后...', {
-                back: 'none' // 可取值"none"表示截获处理返回键，但不做任何响应；"close"表示截获处理返回键并关闭等待框；"transmit"表示不截获返回键，向后传递给Webview窗口继续处理（与未显示等待框的情况一致）。
-            });
-            vlist1.innerHTML = ''; //清空容器
-            vlist2.innerHTML = ''; //清空容器
-            // 初始化蓝牙广播接收器
-            initReceiver();
-            // 开启搜索
-            BAdapter.startDiscovery();
-            // 初始化广播信息过滤
-            initIntentFilter();
-        }
-
-        function initReceiver() {
-            BluetoothDevice = plus.android.importClass("android.bluetooth.BluetoothDevice");
-            var bdevice = new BluetoothDevice();
-            receiver = plus.android.implements('io.dcloud.android.content.BroadcastReceiver', {
-                onReceive: function(context, intent) { //实现onReceiver回调函数
-                    plus.android.importClass(intent); //通过intent实例引入intent类，方便以后的‘.’操作
-                    //console.log(intent.getAction()); //获取action
-
-                    if (intent.getAction() == "android.bluetooth.adapter.action.DISCOVERY_FINISHED") {
-                        mMain.unregisterReceiver(receiver); //取消监听
-                        //console.log("搜索结束")
-                        plus.nativeUI.closeWaiting();
-                    } else {
-                        BleDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                        //                      console.log(JSON.stringify(BluetoothDevice));
-                        //                      console.log(JSON.stringify(BleDevice));
-                        //判断是否配对
-                        if (BleDevice.getBondState() == bdevice.BOND_NONE) {
-                            //console.log("未配对蓝牙设备：" + BleDevice.getName() + '    ' + BleDevice.getAddress());
-                            if (!document.getElementById(BleDevice.getAddress())) { //判断防止重复添加
-                                var li1 = genLi(BleDevice);
-                                vlist1.appendChild(li1);
-                            }
-                        } else {
-                            if (!document.getElementById(BleDevice.getAddress())) { //判断防止重复添加
-                                //console.log("已配对蓝牙设备：" + BleDevice.getName() + '    ' + BleDevice.getAddress());
-                                var li2 = genLi(BleDevice);
-                                vlist2.appendChild(li2);
-                            }
-                        }
-                    }
+        function openIFID(){
+            plus.HFPlugin.openIFID(1,function(re){
+                if(re){
+                 mui.toast('IFID打开成功') ;
+                }else{
+                  alert('IFID打开失败') ;
                 }
             });
         }
 
-        function initIntentFilter() {
-            // 设置广播信息过滤
-            var IntentFilter = plus.android.importClass('android.content.IntentFilter');
-            var filter = new IntentFilter();
-            filter.addAction(BluetoothDevice.ACTION_FOUND);
-            filter.addAction(BAdapter.ACTION_DISCOVERY_STARTED);
-            filter.addAction(BAdapter.ACTION_DISCOVERY_FINISHED);
-            filter.addAction(BAdapter.ACTION_STATE_CHANGED);
-            // 注册广播接收器，接收并处理搜索结果
-            mMain.registerReceiver(receiver, filter);
-        }
-
-        function connect(mac_address) {
-            // 查找蓝牙设备
-            var unConnected = BAdapter.getRemoteDevice(mac_address);
-            if (unConnected) {
-                try {
-                    if (BleDevice.createBond()) { //配对命令.createBond()
-                        //console.log("配对成功");
-                    }
-                } catch (e) {
-                    //TODO handle the exception
-                    mui.alert('连接到设备失败');
+        function closeIFID(){
+            plus.HFPlugin.closeIFID(1,function(re){
+                if(re){
+                 mui.toast('IFID关闭成功') ;
+                }else{
+                  alert('IFID关闭失败') ;
                 }
-            }
+            });
+        }
+        function writeIFID(){
+         plus.HFPlugin.writeIFID(['110000195518021325701311'],function(re){
+                  if(re){
+                    alert('写入成功') ;
+                  }else{
+                    alert('写入失败') ;
+                  }
+            });
+        }
+         function readeIFID(){
+         plus.HFPlugin.readeIFID(1,function(re){
+                 alert(re) ;
+            });
         }
 
-        //mac_address:打印机的mac地址
-        function print(mac_address, str) {
-            if (!mac_address) {
-                mui.toast('请选择蓝牙打印机');
-                return;
-            }
-           // mui.toast('打印机的地址'+mac_address+'打印的内容：') ;
-            plus.printbarcode.JoinPrinterAddress(0,function(re){
-                mui.toast('蓝牙链接成功，开始打印标签内容了'+re);
-
-                setTimeout(function(){
-                // plus.printbarcode.printText('daadfadfadfasfasdfasdf的说法发到付',function(da){
-                 //   alert(da);
-               //  });
-
-                //  plus.printbarcode.printBarcode('哈哈哈，你是不是扫我了！',function(da){
-                //    alert(da);
-                 //});
-
-                  plus.printbarcode.initParam(initParms,function(da){
-                   mui.alert('点击开始打印标签','初始化成功'+da,'开始打印',function (e) {
-                         plus.printbarcode.printLabel(['鼎森金属生产信息化系统','追溯号','WL1812010974390','钢卷号','M8A15100010B00','规格','1.4*1068*C','净重','12981KG','零件号','26208189/8219','打印时间','2018-12-01 09:54:30','校验时间','2018-12-01 13:48:23','R:M8A15100010B00;W:WL1812010954309;G:1.4*1068*C;N:12981KG;P:26208189/8219','拆包检验合格'],function(dat){
-                                 alert('打印成功'+dat);
-                         });
-
-                    },'div')
-                 });
-
-                },2000);
-
-            });// 0 要链接的第几个。
-            return ;
-            if (mDevice == null) {
-                //              mMain = plus.android.runtimeMainActivity();
-                //              BluetoothAdapter = plus.android.importClass("android.bluetooth.BluetoothAdapter");
-                //              BAdapter = BluetoothAdapter.getDefaultAdapter();
-                UUID = plus.android.importClass("java.util.UUID");
-                mUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-                mDevice = BAdapter.getRemoteDevice(mac_address);
-                plus.android.importClass(mDevice);
-                BluetoothSocket = mDevice.createInsecureRfcommSocketToServiceRecord(mUUID);
-            }
-            plus.android.importClass(BluetoothSocket);
-            if (!BluetoothSocket.isConnected()) {
-                //console.log('检测到设备未连接，尝试连接....');
-                try {
-                    BluetoothSocket.connect();
-                } catch (e) {
-                    //TODO handle the exception
-                    mui.alert('连接超时');
-                    return;
-                }
-            }
-
-            // 防止蓝牙未完成连接时调用打印
-            CommonUtil.WaitFor(
-                function() { // 等待条件
-                    return BluetoothSocket.isConnected();
-                },
-                function() { // 回调方法
-                    if (!BluetoothSocket.isConnected()) {
-                        plus.nativeUI.toast('请连接打印机');
-                        return;
-                    }
-                    printTest();
-                    //printPictureTest();
-                }, 3000);
+        function getIFID(){
+            plus.HFPlugin.getIFID(1,function(re){
+                  alert(re) ;
+            });
         }
-        //  13986418192   张
-
-        function printTest() {
-            // 初始化PintUtil
-            PrintUtil.init(BluetoothSocket);
-            // 以下测试打印
-            var printStr = '测试打印\r\n';
-            // 设置字体大小
-            PrintUtil.SetFontSize(30);
-            // 打印字符串
-            PrintUtil.PrintString(printStr);
-            // 设置字体大小
-            PrintUtil.SetFontSize(20);
-            // 打印字符串
-            PrintUtil.PrintString(printStr);
-            // 重置打印机
-            PrintUtil.Reset();
-            // 打印字符串
-            PrintUtil.PrintString(printStr);
-            // 切纸
-//          PrintUtil.CutPage();
-            // 结束打印
-            PrintUtil.End();
-        }
-
-        function genLi(bleDevice) {
-            var li = document.createElement('li');
-            li.setAttribute('id', bleDevice.getAddress());
-            li.className = 'mui-table-view-cell';
-            var a = document.createElement('a');
-            a.setAttribute('class', 'mui-navigate-right')
-            a.innerText = bleDevice.getName();
-            li.appendChild(a);
-            return li;
-        }
-        setTimeout(function(){
-        //alert(JSON.stringify(plus.printbarcode.allddresses()));
-        },5000);
-        </script>
+</script>
 </body>
 </html>

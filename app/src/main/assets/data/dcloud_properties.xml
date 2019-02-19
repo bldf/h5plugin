@@ -60,6 +60,7 @@
 		<feature name="Stream" value="io.dcloud.appstream.js.StreamAppFeatureImpl"/>
 		<feature name="Fingerprint" value="io.dcloud.feature.fingerprint.FingerPrintsImpl"/>
 		<feature name="printbarcode" value="com.example.H5PlusPlugin.PGPlugintest"/>
+		<feature name="HFPlugin" value="com.example.H5PlusPlugin.HFPlugin"/>
 	</features>
 
 	<services>
